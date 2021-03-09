@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventCell" id="kFK-tf-cXa">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventCell" id="kFK-tf-cXa" customClass="EventCell" customModule="FetchExercise" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="390" height="192.33332824707031"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kFK-tf-cXa" id="VI1-a8-1Jr">
@@ -84,6 +84,13 @@
                                                 <constraint firstItem="pHi-vM-9j9" firstAttribute="leading" secondItem="aIA-cS-tGT" secondAttribute="trailing" constant="20" id="pW8-LY-ytb"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cityLabel" destination="D6L-9v-ciI" id="ma5-RQ-5cu"/>
+                                            <outlet property="dateLabel" destination="W9F-zc-ahm" id="vuR-Hb-hl5"/>
+                                            <outlet property="eventImageView" destination="aIA-cS-tGT" id="ctf-tQ-iRr"/>
+                                            <outlet property="nameLabel" destination="oev-zZ-CZf" id="8NK-iE-gIG"/>
+                                            <outlet property="timeLabel" destination="TdF-L2-IuG" id="UZd-mn-pQh"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

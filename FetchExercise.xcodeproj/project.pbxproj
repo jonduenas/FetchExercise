@@ -17,6 +17,7 @@
 		65C969A525F7FA7B00A6A733 /* FetchExerciseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C969A425F7FA7B00A6A733 /* FetchExerciseUITests.swift */; };
 		65C969BC25F8052000A6A733 /* EventDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65C969BB25F8052000A6A733 /* EventDetails.storyboard */; };
 		65C969C425F808EE00A6A733 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C969C325F808EE00A6A733 /* EventDetailsViewController.swift */; };
+		65C969C925F8098500A6A733 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C969C825F8098500A6A733 /* EventCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		65C969A625F7FA7B00A6A733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65C969BB25F8052000A6A733 /* EventDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetails.storyboard; sourceTree = "<group>"; };
 		65C969C325F808EE00A6A733 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
+		65C969C825F8098500A6A733 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			children = (
 				65C9698825F7FA7800A6A733 /* Main.storyboard */,
 				65C9698625F7FA7800A6A733 /* EventsViewController.swift */,
+				65C969C825F8098500A6A733 /* EventCell.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			files = (
 				65C969C425F808EE00A6A733 /* EventDetailsViewController.swift in Sources */,
 				65C9698725F7FA7800A6A733 /* EventsViewController.swift in Sources */,
+				65C969C925F8098500A6A733 /* EventCell.swift in Sources */,
 				65C9698325F7FA7800A6A733 /* AppDelegate.swift in Sources */,
 				65C9698525F7FA7800A6A733 /* SceneDelegate.swift in Sources */,
 			);
