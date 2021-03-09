@@ -7,9 +7,11 @@
 
 import UIKit
 
-class EventsViewController: UIViewController {
+class EventsViewController: UIViewController, Storyboarded {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    weak var coordinator: EventsCoodinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,16 +10,19 @@
 		65C9698325F7FA7800A6A733 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C9698225F7FA7800A6A733 /* AppDelegate.swift */; };
 		65C9698525F7FA7800A6A733 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C9698425F7FA7800A6A733 /* SceneDelegate.swift */; };
 		65C9698725F7FA7800A6A733 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C9698625F7FA7800A6A733 /* EventsViewController.swift */; };
-		65C9698A25F7FA7800A6A733 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65C9698825F7FA7800A6A733 /* Main.storyboard */; };
+		65C9698A25F7FA7800A6A733 /* EventsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65C9698825F7FA7800A6A733 /* EventsViewController.storyboard */; };
 		65C9698C25F7FA7B00A6A733 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65C9698B25F7FA7B00A6A733 /* Assets.xcassets */; };
 		65C9698F25F7FA7B00A6A733 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65C9698D25F7FA7B00A6A733 /* LaunchScreen.storyboard */; };
 		65C9699A25F7FA7B00A6A733 /* FetchExerciseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C9699925F7FA7B00A6A733 /* FetchExerciseTests.swift */; };
 		65C969A525F7FA7B00A6A733 /* FetchExerciseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C969A425F7FA7B00A6A733 /* FetchExerciseUITests.swift */; };
-		65C969BC25F8052000A6A733 /* EventDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65C969BB25F8052000A6A733 /* EventDetails.storyboard */; };
+		65C969BC25F8052000A6A733 /* EventDetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65C969BB25F8052000A6A733 /* EventDetailsViewController.storyboard */; };
 		65C969C425F808EE00A6A733 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C969C325F808EE00A6A733 /* EventDetailsViewController.swift */; };
 		65C969C925F8098500A6A733 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C969C825F8098500A6A733 /* EventCell.swift */; };
 		65C969CE25F80A5D00A6A733 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C969CD25F80A5D00A6A733 /* Event.swift */; };
 		65C969D325F80ADC00A6A733 /* EventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C969D225F80ADC00A6A733 /* EventData.swift */; };
+		65C969E425F8179100A6A733 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C969E325F8179100A6A733 /* Storyboarded.swift */; };
+		65C969EC25F8187900A6A733 /* EventsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C969EB25F8187900A6A733 /* EventsCoordinator.swift */; };
+		65C969F125F8189B00A6A733 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C969F025F8189B00A6A733 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +47,7 @@
 		65C9698225F7FA7800A6A733 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65C9698425F7FA7800A6A733 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		65C9698625F7FA7800A6A733 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
-		65C9698925F7FA7800A6A733 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		65C9698925F7FA7800A6A733 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/EventsViewController.storyboard; sourceTree = "<group>"; };
 		65C9698B25F7FA7B00A6A733 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65C9698E25F7FA7B00A6A733 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65C9699025F7FA7B00A6A733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,11 +57,14 @@
 		65C969A025F7FA7B00A6A733 /* FetchExerciseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FetchExerciseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C969A425F7FA7B00A6A733 /* FetchExerciseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchExerciseUITests.swift; sourceTree = "<group>"; };
 		65C969A625F7FA7B00A6A733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		65C969BB25F8052000A6A733 /* EventDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetails.storyboard; sourceTree = "<group>"; };
+		65C969BB25F8052000A6A733 /* EventDetailsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetailsViewController.storyboard; sourceTree = "<group>"; };
 		65C969C325F808EE00A6A733 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		65C969C825F8098500A6A733 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		65C969CD25F80A5D00A6A733 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		65C969D225F80ADC00A6A733 /* EventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventData.swift; sourceTree = "<group>"; };
+		65C969E325F8179100A6A733 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		65C969EB25F8187900A6A733 /* EventsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCoordinator.swift; sourceTree = "<group>"; };
+		65C969F025F8189B00A6A733 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,10 +115,11 @@
 		65C9698125F7FA7800A6A733 /* FetchExercise */ = {
 			isa = PBXGroup;
 			children = (
-				65C969BA25F8050800A6A733 /* EventDetails */,
+				65C969E225F8177F00A6A733 /* Protocols */,
 				65C969B925F804FD00A6A733 /* Model */,
 				65C969DD25F8122E00A6A733 /* Lifecycle */,
 				65C969B525F804DE00A6A733 /* Events */,
+				65C969BA25F8050800A6A733 /* EventDetails */,
 				65C9698B25F7FA7B00A6A733 /* Assets.xcassets */,
 				65C9698D25F7FA7B00A6A733 /* LaunchScreen.storyboard */,
 				65C9699025F7FA7B00A6A733 /* Info.plist */,
@@ -141,8 +148,9 @@
 		65C969B525F804DE00A6A733 /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				65C9698825F7FA7800A6A733 /* Main.storyboard */,
+				65C9698825F7FA7800A6A733 /* EventsViewController.storyboard */,
 				65C9698625F7FA7800A6A733 /* EventsViewController.swift */,
+				65C969EB25F8187900A6A733 /* EventsCoordinator.swift */,
 				65C969C825F8098500A6A733 /* EventCell.swift */,
 			);
 			path = Events;
@@ -160,7 +168,7 @@
 		65C969BA25F8050800A6A733 /* EventDetails */ = {
 			isa = PBXGroup;
 			children = (
-				65C969BB25F8052000A6A733 /* EventDetails.storyboard */,
+				65C969BB25F8052000A6A733 /* EventDetailsViewController.storyboard */,
 				65C969C325F808EE00A6A733 /* EventDetailsViewController.swift */,
 			);
 			path = EventDetails;
@@ -173,6 +181,15 @@
 				65C9698425F7FA7800A6A733 /* SceneDelegate.swift */,
 			);
 			path = Lifecycle;
+			sourceTree = "<group>";
+		};
+		65C969E225F8177F00A6A733 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				65C969E325F8179100A6A733 /* Storyboarded.swift */,
+				65C969F025F8189B00A6A733 /* Coordinator.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,8 +297,8 @@
 			files = (
 				65C9698F25F7FA7B00A6A733 /* LaunchScreen.storyboard in Resources */,
 				65C9698C25F7FA7B00A6A733 /* Assets.xcassets in Resources */,
-				65C969BC25F8052000A6A733 /* EventDetails.storyboard in Resources */,
-				65C9698A25F7FA7800A6A733 /* Main.storyboard in Resources */,
+				65C969BC25F8052000A6A733 /* EventDetailsViewController.storyboard in Resources */,
+				65C9698A25F7FA7800A6A733 /* EventsViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,13 +323,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C969EC25F8187900A6A733 /* EventsCoordinator.swift in Sources */,
 				65C969C425F808EE00A6A733 /* EventDetailsViewController.swift in Sources */,
+				65C969F125F8189B00A6A733 /* Coordinator.swift in Sources */,
 				65C969D325F80ADC00A6A733 /* EventData.swift in Sources */,
 				65C9698725F7FA7800A6A733 /* EventsViewController.swift in Sources */,
 				65C969C925F8098500A6A733 /* EventCell.swift in Sources */,
 				65C9698325F7FA7800A6A733 /* AppDelegate.swift in Sources */,
 				65C969CE25F80A5D00A6A733 /* Event.swift in Sources */,
 				65C9698525F7FA7800A6A733 /* SceneDelegate.swift in Sources */,
+				65C969E425F8179100A6A733 /* Storyboarded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,12 +368,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		65C9698825F7FA7800A6A733 /* Main.storyboard */ = {
+		65C9698825F7FA7800A6A733 /* EventsViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				65C9698925F7FA7800A6A733 /* Base */,
 			);
-			name = Main.storyboard;
+			name = EventsViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		65C9698D25F7FA7B00A6A733 /* LaunchScreen.storyboard */ = {

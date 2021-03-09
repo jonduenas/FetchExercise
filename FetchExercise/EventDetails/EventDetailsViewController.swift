@@ -7,12 +7,14 @@
 
 import UIKit
 
-class EventDetailsViewController: UIViewController {
+class EventDetailsViewController: UIViewController, Storyboarded {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    
+    weak var coordinator: EventsCoodinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()

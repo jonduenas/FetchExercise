@@ -11,13 +11,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var coordinator: EventsCoodinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if #available(iOS 13, *) {
             
         } else {
-            self.window = UIWindow()
+            let navController = UINavigationController()
+            coordinator = EventsCoodinator(navigationController: navController)
+            coordinator?.start()
             
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.rootViewController = navController
+            window?.makeKeyAndVisible()
         }
         return true
     }
