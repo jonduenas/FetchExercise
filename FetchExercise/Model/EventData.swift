@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct EventsList: Codable {
+    let events: [EventData]
+}
+
 struct EventData: Codable {
     let id: Int
     let title: String
@@ -15,23 +19,23 @@ struct EventData: Codable {
     let timeTbd: Bool
     let venue: Venue
     let performers: [Performer]
-    
-    struct Venue: Codable {
-        let id: Int
-        let city: String
-        let state: String
-        let country: String
-        let address: String
-        let extendedAddress: String?
-        let name: String
-        let url: String
-    }
+}
 
-    struct Performer: Codable {
-        let id: Int
-        let name: String
-        let url: String
-        let image: String
-        let images: [String: String]
-    }
+struct Venue: Codable {
+    let id: Int
+    let city: String
+    let state: String
+    let country: String
+    let address: String
+    let extendedAddress: String?
+    let name: String
+    let url: String
+}
+
+struct Performer: Codable {
+    let id: Int
+    let name: String
+    let url: String
+    let image: String
+    let images: [String: String]
 }
