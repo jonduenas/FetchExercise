@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Event Details View Controller-->
         <scene sceneID="wY0-LB-PRp">
             <objects>
-                <viewController id="or0-Vw-e6T" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventDetailsViewController" id="or0-Vw-e6T" customClass="EventDetailsViewController" customModule="FetchExercise" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dtR-9S-vxs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,6 +57,12 @@
                             <constraint firstItem="HBv-hu-ixI" firstAttribute="leading" secondItem="dVB-Zk-ja4" secondAttribute="leading" constant="20" id="uGU-31-QAo"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cityLabel" destination="2hp-AG-J78" id="RjO-ve-qou"/>
+                        <outlet property="dateLabel" destination="fkp-uS-OqL" id="rlI-XI-eoM"/>
+                        <outlet property="descriptionLabel" destination="ZRg-pb-JJV" id="sit-Mv-xoH"/>
+                        <outlet property="imageView" destination="HBv-hu-ixI" id="94T-qG-Eyi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OHs-fO-VZF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
