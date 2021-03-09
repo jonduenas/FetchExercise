@@ -18,6 +18,8 @@
 		65C969BC25F8052000A6A733 /* EventDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65C969BB25F8052000A6A733 /* EventDetails.storyboard */; };
 		65C969C425F808EE00A6A733 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C969C325F808EE00A6A733 /* EventDetailsViewController.swift */; };
 		65C969C925F8098500A6A733 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C969C825F8098500A6A733 /* EventCell.swift */; };
+		65C969CE25F80A5D00A6A733 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C969CD25F80A5D00A6A733 /* Event.swift */; };
+		65C969D325F80ADC00A6A733 /* EventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C969D225F80ADC00A6A733 /* EventData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		65C969BB25F8052000A6A733 /* EventDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetails.storyboard; sourceTree = "<group>"; };
 		65C969C325F808EE00A6A733 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		65C969C825F8098500A6A733 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		65C969CD25F80A5D00A6A733 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		65C969D225F80ADC00A6A733 /* EventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,8 @@
 		65C969B925F804FD00A6A733 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				65C969CD25F80A5D00A6A733 /* Event.swift */,
+				65C969D225F80ADC00A6A733 /* EventData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -293,9 +299,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				65C969C425F808EE00A6A733 /* EventDetailsViewController.swift in Sources */,
+				65C969D325F80ADC00A6A733 /* EventData.swift in Sources */,
 				65C9698725F7FA7800A6A733 /* EventsViewController.swift in Sources */,
 				65C969C925F8098500A6A733 /* EventCell.swift in Sources */,
 				65C9698325F7FA7800A6A733 /* AppDelegate.swift in Sources */,
+				65C969CE25F80A5D00A6A733 /* Event.swift in Sources */,
 				65C9698525F7FA7800A6A733 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +483,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XWQQ29E97Q;
 				INFOPLIST_FILE = FetchExercise/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -494,6 +503,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XWQQ29E97Q;
 				INFOPLIST_FILE = FetchExercise/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
