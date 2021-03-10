@@ -32,12 +32,16 @@ class EventDetailsViewController: UIViewController, Storyboarded {
     
     private func updateImageView(for event: Event) {
         imageView.layer.cornerRadius = 10
+        imageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        
         var placeholderImage: UIImage?
         if #available(iOS 13.0, *) {
             placeholderImage = UIImage(systemName: "photo.on.rectangle")
         }
         if let imageURL = event.images[.huge] {
-            imageView.sd_setImage(with: URL(string: imageURL), placeholderImage: placeholderImage)
+            imageView.sd_setImage(with: URL(string: imageURL))
+        } else {
+            imageView.image = placeholderImage
         }
     }
     

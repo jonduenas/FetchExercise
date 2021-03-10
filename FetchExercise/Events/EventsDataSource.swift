@@ -23,11 +23,8 @@ class EventsDataSource: NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.reuseIdentifier, for: indexPath) as! EventCell
         
         if let imageURL = events[indexPath.row].images[.huge] {
-            if #available(iOS 13.0, *) {
-                cell.eventImageView.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(systemName: "photo.on.rectangle"))
-            } else {
-                cell.eventImageView.sd_setImage(with: URL(string: imageURL), placeholderImage: nil)
-            }
+            cell.eventImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            cell.eventImageView.sd_setImage(with: URL(string: imageURL))
         } else {
             if #available(iOS 13.0, *) {
                 cell.eventImageView.image = UIImage(systemName: "photo.on.rectangle")
