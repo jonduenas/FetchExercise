@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		22A3627DA0BA2EDDF2DFC464 /* Pods_FetchExercise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA58D7E62D920AA98A7E1919 /* Pods_FetchExercise.framework */; };
+		6519B3FA25F9856E004F5DD4 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6519B3F925F9856E004F5DD4 /* ActivityIndicator.swift */; };
 		659BDA5D25F81D2700ADC237 /* MobileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BDA5C25F81D2700ADC237 /* MobileService.swift */; };
 		659BDA6F25F844B300ADC237 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BDA6E25F844B300ADC237 /* URLRequest.swift */; };
 		659BDA7725F8466E00ADC237 /* EventsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BDA7625F8466E00ADC237 /* EventsDataSource.swift */; };
@@ -52,6 +53,7 @@
 		45CC7A5AF6D872CA836B707C /* Pods-FetchExerciseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FetchExerciseTests.release.xcconfig"; path = "Target Support Files/Pods-FetchExerciseTests/Pods-FetchExerciseTests.release.xcconfig"; sourceTree = "<group>"; };
 		554C7531EEFB066398963D92 /* Pods-FetchExercise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FetchExercise.debug.xcconfig"; path = "Target Support Files/Pods-FetchExercise/Pods-FetchExercise.debug.xcconfig"; sourceTree = "<group>"; };
 		56F539AEAE65485D676B5D66 /* Pods-FetchExercise-FetchExerciseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FetchExercise-FetchExerciseUITests.release.xcconfig"; path = "Target Support Files/Pods-FetchExercise-FetchExerciseUITests/Pods-FetchExercise-FetchExerciseUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6519B3F925F9856E004F5DD4 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		659BDA5C25F81D2700ADC237 /* MobileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileService.swift; sourceTree = "<group>"; };
 		659BDA6E25F844B300ADC237 /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 		659BDA7625F8466E00ADC237 /* EventsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDataSource.swift; sourceTree = "<group>"; };
@@ -113,6 +115,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6519B3F825F9854F004F5DD4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6519B3F925F9856E004F5DD4 /* ActivityIndicator.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		659BDA5B25F81D1200ADC237 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +164,7 @@
 		65C9698125F7FA7800A6A733 /* FetchExercise */ = {
 			isa = PBXGroup;
 			children = (
+				6519B3F825F9854F004F5DD4 /* Views */,
 				659BDA6D25F844A400ADC237 /* Networking */,
 				659BDA5B25F81D1200ADC237 /* Helpers */,
 				65C969E225F8177F00A6A733 /* Protocols */,
@@ -244,7 +255,6 @@
 				C2BF93A35E70B3863419253D /* Pods-FetchExerciseTests.debug.xcconfig */,
 				45CC7A5AF6D872CA836B707C /* Pods-FetchExerciseTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -501,6 +511,7 @@
 				65C969C425F808EE00A6A733 /* EventDetailsViewController.swift in Sources */,
 				65C969F125F8189B00A6A733 /* Coordinator.swift in Sources */,
 				659BDA6F25F844B300ADC237 /* URLRequest.swift in Sources */,
+				6519B3FA25F9856E004F5DD4 /* ActivityIndicator.swift in Sources */,
 				65C969D325F80ADC00A6A733 /* EventData.swift in Sources */,
 				65C9698725F7FA7800A6A733 /* EventsViewController.swift in Sources */,
 				65C969C925F8098500A6A733 /* EventCell.swift in Sources */,

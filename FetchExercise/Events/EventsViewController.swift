@@ -14,12 +14,26 @@ class EventsViewController: UIViewController, Storyboarded {
     weak var coordinator: EventsCoodinator?
     var mobileService: MobileService_Protocol?
     var dataSource: EventsDataSource?
+    var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureActivityIndicator()
         tableView.delegate = self
+        
+        setState(loading: true)
         loadEvents()
+    }
+    
+    private func configureActivityIndicator() {
+        if #available(iOS 13.0, *) {
+            activityIndicator = view.activityIndicator(style: .large, center: view.center)
+        } else {
+            activityIndicator = view.activityIndicator(style: .gray, center: view.center)
+        }
+        
+        view.addSubview(activityIndicator)
     }
     
     private func loadEvents() {
@@ -30,12 +44,23 @@ class EventsViewController: UIViewController, Storyboarded {
                 print(error)
             case .success(let events):
                 DispatchQueue.main.async {
+                    self?.setState(loading: false)
                     self?.dataSource = EventsDataSource(events: events)
                     self?.tableView.dataSource = self?.dataSource
                     self?.tableView.reloadData()
                 }
             }
         })
+    }
+    
+    private func setState(loading: Bool) {
+        tableView.isHidden = loading
+        
+        if loading {
+            activityIndicator.startAnimating()
+        } else {
+            activityIndicator.stopAnimating()
+        }
     }
 }
 
