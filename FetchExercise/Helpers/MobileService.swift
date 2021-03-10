@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MobileService_Protocol {
-    func events(completion: @escaping (Result<[Event], Error>) -> Void)
+    func fetchEvents(page: Int, completion: @escaping (Result<[Event], Error>) -> Void)
 }
 
 class MobileService: MobileService_Protocol {
@@ -22,9 +22,18 @@ class MobileService: MobileService_Protocol {
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
     }
     
-    func events(completion: @escaping (Result<[Event], Error>) -> Void) {
-        let url = constructURL()
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+    func fetchEvents(page: Int, completion: @escaping (Result<[Event], Error>) -> Void) {
+        let urlRequest = URLRequest(url: api_endpoint.appendingPathComponent(apiResource.events.rawValue))
+        
+        let parameters = [
+            "client_id": api_clientID,
+            "page": "\(page)",
+            "per_page": "20"
+        ]
+        
+        let encodedRequest = urlRequest.encode(with: parameters)
+        print(encodedRequest.url!)
+        URLSession.shared.dataTask(with: encodedRequest) { (data, response, error) in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -45,7 +54,10 @@ class MobileService: MobileService_Protocol {
     private func constructURL() -> URL {
         let url = api_endpoint.appendingPathComponent(apiResource.events.rawValue)
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)!
-        urlComponents.queryItems = [URLQueryItem(name: "client_id", value: api_clientID)]
+        urlComponents.queryItems = [
+            URLQueryItem(name: "client_id", value: api_clientID),
+            URLQueryItem(name: "per_page", value: "20")
+        ]
         return urlComponents.url!
     }
     
@@ -57,16 +69,32 @@ class MobileService: MobileService_Protocol {
                 guard let imageSize = ImageSize(rawValue: image.key) else { continue }
                 imageDictionary[imageSize] = image.value
             }
-            var eventTime = EventDateTime.tbd
-            if !eventData.timeTbd {
-                eventTime = .dateTime(eventData.datetimeLocal.convertToDate()!)
+            
+            var eventDateTime: EventDateTime
+            if eventData.timeTbd == false {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+                if let date = dateFormatter.date(from: eventData.datetimeLocal) {
+                    dateFormatter.timeStyle = .none
+                    dateFormatter.dateStyle = .full
+                    let dateString = dateFormatter.string(from: date)
+                    dateFormatter.timeStyle = .short
+                    dateFormatter.dateStyle = .none
+                    let timeString = dateFormatter.string(from: date)
+                    eventDateTime = .dateTime(date: dateString, time: timeString)
+                } else {
+                    eventDateTime = .tbd
+                }
+            } else {
+                eventDateTime = .tbd
             }
             
             return Event(id: eventData.id,
                          title: eventData.title,
+                         shortTitle: eventData.shortTitle,
                          url: URL(string: eventData.url)!,
                          images: imageDictionary,
-                         dateTimeLocal: eventTime,
+                         dateTimeLocal: eventDateTime,
                          city: eventData.venue.city,
                          state: eventData.venue.state,
                          country: eventData.venue.country)

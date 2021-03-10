@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		659BDA5D25F81D2700ADC237 /* MobileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BDA5C25F81D2700ADC237 /* MobileService.swift */; };
-		659BDA6525F820E000ADC237 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BDA6425F820E000ADC237 /* Constants.swift */; };
+		659BDA6F25F844B300ADC237 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BDA6E25F844B300ADC237 /* URLRequest.swift */; };
+		659BDA7725F8466E00ADC237 /* EventsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BDA7625F8466E00ADC237 /* EventsDataSource.swift */; };
 		65C9698325F7FA7800A6A733 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C9698225F7FA7800A6A733 /* AppDelegate.swift */; };
 		65C9698525F7FA7800A6A733 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C9698425F7FA7800A6A733 /* SceneDelegate.swift */; };
 		65C9698725F7FA7800A6A733 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C9698625F7FA7800A6A733 /* EventsViewController.swift */; };
@@ -46,7 +47,8 @@
 
 /* Begin PBXFileReference section */
 		659BDA5C25F81D2700ADC237 /* MobileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileService.swift; sourceTree = "<group>"; };
-		659BDA6425F820E000ADC237 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		659BDA6E25F844B300ADC237 /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
+		659BDA7625F8466E00ADC237 /* EventsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDataSource.swift; sourceTree = "<group>"; };
 		65C9697F25F7FA7800A6A733 /* FetchExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FetchExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C9698225F7FA7800A6A733 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65C9698425F7FA7800A6A733 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,9 +102,16 @@
 			isa = PBXGroup;
 			children = (
 				659BDA5C25F81D2700ADC237 /* MobileService.swift */,
-				659BDA6425F820E000ADC237 /* Constants.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		659BDA6D25F844A400ADC237 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				659BDA6E25F844B300ADC237 /* URLRequest.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		65C9697625F7FA7800A6A733 = {
@@ -128,6 +137,7 @@
 		65C9698125F7FA7800A6A733 /* FetchExercise */ = {
 			isa = PBXGroup;
 			children = (
+				659BDA6D25F844A400ADC237 /* Networking */,
 				659BDA5B25F81D1200ADC237 /* Helpers */,
 				65C969E225F8177F00A6A733 /* Protocols */,
 				65C969B925F804FD00A6A733 /* Model */,
@@ -164,6 +174,7 @@
 			children = (
 				65C9698825F7FA7800A6A733 /* EventsViewController.storyboard */,
 				65C9698625F7FA7800A6A733 /* EventsViewController.swift */,
+				659BDA7625F8466E00ADC237 /* EventsDataSource.swift */,
 				65C969EB25F8187900A6A733 /* EventsCoordinator.swift */,
 				65C969C825F8098500A6A733 /* EventCell.swift */,
 			);
@@ -340,15 +351,16 @@
 				65C969EC25F8187900A6A733 /* EventsCoordinator.swift in Sources */,
 				65C969C425F808EE00A6A733 /* EventDetailsViewController.swift in Sources */,
 				65C969F125F8189B00A6A733 /* Coordinator.swift in Sources */,
+				659BDA6F25F844B300ADC237 /* URLRequest.swift in Sources */,
 				65C969D325F80ADC00A6A733 /* EventData.swift in Sources */,
 				65C9698725F7FA7800A6A733 /* EventsViewController.swift in Sources */,
 				65C969C925F8098500A6A733 /* EventCell.swift in Sources */,
 				65C9698325F7FA7800A6A733 /* AppDelegate.swift in Sources */,
 				659BDA5D25F81D2700ADC237 /* MobileService.swift in Sources */,
 				65C969CE25F80A5D00A6A733 /* Event.swift in Sources */,
+				659BDA7725F8466E00ADC237 /* EventsDataSource.swift in Sources */,
 				65C9698525F7FA7800A6A733 /* SceneDelegate.swift in Sources */,
 				65C969E425F8179100A6A733 /* Storyboarded.swift in Sources */,
-				659BDA6525F820E000ADC237 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,16 +13,21 @@ class EventsViewController: UIViewController, Storyboarded {
     
     weak var coordinator: EventsCoodinator?
     var mobileService: MobileService_Protocol?
+    var dataSource: EventsDataSource?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mobileService = MobileService()
-        mobileService?.events(completion: { result in
+        mobileService?.fetchEvents(page: 1, completion: { [weak self] result in
             switch result {
-            case .success(let events):
-                print("Downloaded \(events.count) events")
             case .failure(let error):
-                print(error.localizedDescription)
+                print(error)
+            case .success(let events):
+                DispatchQueue.main.async {
+                    self?.dataSource = EventsDataSource(events: events)
+                    self?.tableView.dataSource = self?.dataSource
+                    self?.tableView.reloadData()
+                }
             }
         })
     }

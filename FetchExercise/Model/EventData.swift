@@ -14,6 +14,7 @@ struct EventsList: Codable {
 struct EventData: Codable {
     let id: Int
     let title: String
+    let shortTitle: String
     let url: String
     let datetimeLocal: String
     let timeTbd: Bool

@@ -10,6 +10,7 @@ import Foundation
 struct Event {
     let id: Int
     let title: String
+    let shortTitle: String
     let url: URL
     let images: [ImageSize: String]
     let dateTimeLocal: EventDateTime
@@ -21,7 +22,7 @@ struct Event {
 
 enum EventDateTime {
     case tbd
-    case dateTime(_ dateTime: Date)
+    case dateTime(date: String, time: String)
 }
 
 enum ImageSize: String {
