@@ -19,6 +19,7 @@ class EventsViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Events"
         configureActivityIndicator()
         tableView.delegate = self
         

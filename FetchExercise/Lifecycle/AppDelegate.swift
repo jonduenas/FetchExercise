@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if #available(iOS 13, *) {
             
         } else {
-            let navController = UINavigationController()
+            let navController = CustomNavigationController()
             coordinator = EventsCoodinator(navigationController: navController)
             coordinator?.start()
             
