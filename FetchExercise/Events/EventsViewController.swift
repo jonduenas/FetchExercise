@@ -17,6 +17,12 @@ class EventsViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        loadEvents()
+    }
+    
+    private func loadEvents() {
         mobileService = MobileService()
         mobileService?.fetchEvents(page: 1, completion: { [weak self] result in
             switch result {
@@ -33,3 +39,12 @@ class EventsViewController: UIViewController, Storyboarded {
     }
 }
 
+extension EventsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if let event = dataSource?.events[indexPath.row] {
+            coordinator?.showDetails(event)
+        }
+    }
+}
