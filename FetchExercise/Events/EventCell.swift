@@ -29,10 +29,11 @@ class EventCell: UITableViewCell {
         switch event.dateTimeLocal {
         case .tbd:
             dateLabel.text = "TBD"
-            timeLabel.text = ""
+            timeLabel.isHidden = true
         case .dateTime(date: let date, time: let time):
             dateLabel.text = date
             timeLabel.text = time
+            timeLabel.isHidden = false
         }
     }
 }

@@ -12,8 +12,27 @@ class CustomNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.barTintColor = #colorLiteral(red: 0.009025877342, green: 0.2521837652, blue: 0.4460360408, alpha: 1)
-        navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        let backgroundColor = #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1)
+        navigationBar.barTintColor = backgroundColor
         navigationBar.tintColor = .white
+        navigationBar.barStyle = .black
+        
+        if #available(iOS 13.0, *) {
+            let coloredAppearance = UINavigationBarAppearance()
+            coloredAppearance.configureWithTransparentBackground()
+            coloredAppearance.backgroundColor = backgroundColor
+            coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+
+            let button = UIBarButtonItemAppearance(style: .plain)
+            button.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
+            coloredAppearance.buttonAppearance = button
+
+            let done = UIBarButtonItemAppearance(style: .done)
+            done.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
+            coloredAppearance.doneButtonAppearance = done
+            
+            navigationBar.standardAppearance = coloredAppearance
+            navigationBar.scrollEdgeAppearance = coloredAppearance
+        }
     }
 }

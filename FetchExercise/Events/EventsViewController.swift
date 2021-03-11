@@ -15,15 +15,15 @@ class EventsViewController: UIViewController, Storyboarded {
     var mobileService: MobileService_Protocol?
     var dataSource: EventsDataSource?
     var activityIndicator: UIActivityIndicatorView!
+    let searchController = EventsSearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Events"
+        configureSearchBar()
         configureActivityIndicator()
         tableView.delegate = self
-        
-        setState(loading: true)
         loadEvents()
     }
     
@@ -37,8 +37,20 @@ class EventsViewController: UIViewController, Storyboarded {
         view.addSubview(activityIndicator)
     }
     
+    private func configureSearchBar() {
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Search Events"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        navigationItem.hidesSearchBarWhenScrolling = true
+        searchController.isActive = false
+    }
+    
     private func loadEvents() {
         mobileService = MobileService()
+        
+        setState(loading: true)
+        
         mobileService?.fetchEvents(page: 1, completion: { [weak self] result in
             switch result {
             case .failure(let error):
@@ -72,5 +84,11 @@ extension EventsViewController: UITableViewDelegate {
         if let event = dataSource?.events[indexPath.row] {
             coordinator?.showDetails(event)
         }
+    }
+}
+
+extension EventsViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
     }
 }

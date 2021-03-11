@@ -10,6 +10,7 @@
 		22A3627DA0BA2EDDF2DFC464 /* Pods_FetchExercise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA58D7E62D920AA98A7E1919 /* Pods_FetchExercise.framework */; };
 		6519B3FA25F9856E004F5DD4 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6519B3F925F9856E004F5DD4 /* ActivityIndicator.swift */; };
 		6519B40825F9903E004F5DD4 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6519B40725F9903E004F5DD4 /* CustomNavigationController.swift */; };
+		6519B40D25F99146004F5DD4 /* EventsSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6519B40C25F99146004F5DD4 /* EventsSearchController.swift */; };
 		659BDA5D25F81D2700ADC237 /* MobileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BDA5C25F81D2700ADC237 /* MobileService.swift */; };
 		659BDA6F25F844B300ADC237 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BDA6E25F844B300ADC237 /* URLRequest.swift */; };
 		659BDA7725F8466E00ADC237 /* EventsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BDA7625F8466E00ADC237 /* EventsDataSource.swift */; };
@@ -56,6 +57,7 @@
 		56F539AEAE65485D676B5D66 /* Pods-FetchExercise-FetchExerciseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FetchExercise-FetchExerciseUITests.release.xcconfig"; path = "Target Support Files/Pods-FetchExercise-FetchExerciseUITests/Pods-FetchExercise-FetchExerciseUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6519B3F925F9856E004F5DD4 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		6519B40725F9903E004F5DD4 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		6519B40C25F99146004F5DD4 /* EventsSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsSearchController.swift; sourceTree = "<group>"; };
 		659BDA5C25F81D2700ADC237 /* MobileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileService.swift; sourceTree = "<group>"; };
 		659BDA6E25F844B300ADC237 /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 		659BDA7625F8466E00ADC237 /* EventsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDataSource.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			children = (
 				65C9698825F7FA7800A6A733 /* EventsViewController.storyboard */,
 				65C9698625F7FA7800A6A733 /* EventsViewController.swift */,
+				6519B40C25F99146004F5DD4 /* EventsSearchController.swift */,
 				6519B40725F9903E004F5DD4 /* CustomNavigationController.swift */,
 				659BDA7625F8466E00ADC237 /* EventsDataSource.swift */,
 				65C969EB25F8187900A6A733 /* EventsCoordinator.swift */,
@@ -516,6 +519,7 @@
 				659BDA6F25F844B300ADC237 /* URLRequest.swift in Sources */,
 				6519B3FA25F9856E004F5DD4 /* ActivityIndicator.swift in Sources */,
 				65C969D325F80ADC00A6A733 /* EventData.swift in Sources */,
+				6519B40D25F99146004F5DD4 /* EventsSearchController.swift in Sources */,
 				6519B40825F9903E004F5DD4 /* CustomNavigationController.swift in Sources */,
 				65C9698725F7FA7800A6A733 /* EventsViewController.swift in Sources */,
 				65C969C925F8098500A6A733 /* EventCell.swift in Sources */,
