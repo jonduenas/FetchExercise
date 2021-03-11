@@ -41,6 +41,8 @@ class EventDetailsViewController: UIViewController, Storyboarded {
         if let imageURL = event.images[.huge] {
             imageView.sd_setImage(with: URL(string: imageURL))
         } else {
+            imageView.sd_imageIndicator = nil
+            imageView.contentMode = .center
             imageView.image = placeholderImage
         }
     }

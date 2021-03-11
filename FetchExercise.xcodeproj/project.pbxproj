@@ -206,11 +206,11 @@
 			children = (
 				65C9698825F7FA7800A6A733 /* EventsViewController.storyboard */,
 				65C9698625F7FA7800A6A733 /* EventsViewController.swift */,
-				6519B40C25F99146004F5DD4 /* EventsSearchController.swift */,
-				6519B40725F9903E004F5DD4 /* CustomNavigationController.swift */,
-				659BDA7625F8466E00ADC237 /* EventsDataSource.swift */,
-				65C969EB25F8187900A6A733 /* EventsCoordinator.swift */,
 				65C969C825F8098500A6A733 /* EventCell.swift */,
+				659BDA7625F8466E00ADC237 /* EventsDataSource.swift */,
+				6519B40C25F99146004F5DD4 /* EventsSearchController.swift */,
+				65C969EB25F8187900A6A733 /* EventsCoordinator.swift */,
+				6519B40725F9903E004F5DD4 /* CustomNavigationController.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
