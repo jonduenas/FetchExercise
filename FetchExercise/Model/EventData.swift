@@ -37,6 +37,6 @@ struct Performer: Codable {
     let id: Int
     let name: String
     let url: String
-    let image: String
-    let images: [String: String]
+    let image: String?
+    let images: [String: String]?
 }

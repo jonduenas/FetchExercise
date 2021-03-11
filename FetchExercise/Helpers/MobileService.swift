@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MobileService_Protocol {
-    func fetchEvents(page: Int, completion: @escaping (Result<[Event], Error>) -> Void)
+    func fetchEvents(page: Int, query: String?, completion: @escaping (Result<[Event], Error>) -> Void)
 }
 
 class MobileService: MobileService_Protocol {
@@ -22,14 +22,19 @@ class MobileService: MobileService_Protocol {
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
     }
     
-    func fetchEvents(page: Int, completion: @escaping (Result<[Event], Error>) -> Void) {
+    func fetchEvents(page: Int, query: String?, completion: @escaping (Result<[Event], Error>) -> Void) {
         let urlRequest = URLRequest(url: api_endpoint.appendingPathComponent(apiResource.events.rawValue))
         
-        let parameters = [
+        var parameters: [String: String] = [
             "client_id": api_clientID,
             "page": "\(page)",
             "per_page": "20"
         ]
+        
+        if let query = query {
+            let queryString = query.lowercased().replacingOccurrences(of: " ", with: "+")
+            parameters["q"] = queryString
+        }
         
         let encodedRequest = urlRequest.encode(with: parameters)
         print(encodedRequest.url!)

@@ -11,11 +11,18 @@ class EventsViewController: UIViewController, Storyboarded {
 
     @IBOutlet weak var tableView: UITableView!
     
+    let searchController = EventsSearchController(searchResultsController: nil)
+    
     weak var coordinator: EventsCoodinator?
-    var mobileService: MobileService_Protocol?
+    private var mobileService: MobileService_Protocol = MobileService()
     var dataSource: EventsDataSource?
     var activityIndicator: UIActivityIndicatorView!
-    let searchController = EventsSearchController(searchResultsController: nil)
+    var isFiltering: Bool = false {
+        didSet {
+            dataSource?.isFiltering = isFiltering
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +46,7 @@ class EventsViewController: UIViewController, Storyboarded {
     
     private func configureSearchBar() {
         searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Search Events"
         navigationItem.searchController = searchController
         definesPresentationContext = true
@@ -47,19 +55,35 @@ class EventsViewController: UIViewController, Storyboarded {
     }
     
     private func loadEvents() {
-        mobileService = MobileService()
-        
         setState(loading: true)
         
-        mobileService?.fetchEvents(page: 1, completion: { [weak self] result in
+        mobileService.fetchEvents(page: 1, query: nil, completion: { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let events):
+                self?.dataSource = EventsDataSource(events: events)
                 DispatchQueue.main.async {
                     self?.setState(loading: false)
-                    self?.dataSource = EventsDataSource(events: events)
                     self?.tableView.dataSource = self?.dataSource
+                    self?.tableView.reloadData()
+                }
+            }
+        })
+    }
+    
+    private func filterContentForSearchText(_ searchText: String) {
+        setState(loading: true)
+        isFiltering = true
+        
+        mobileService.fetchEvents(page: 1, query: searchText, completion: { [weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let filteredEvents):
+                self?.dataSource?.filteredEvents = filteredEvents
+                DispatchQueue.main.async {
+                    self?.setState(loading: false)
                     self?.tableView.reloadData()
                 }
             }
@@ -81,14 +105,35 @@ extension EventsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if let event = dataSource?.events[indexPath.row] {
-            coordinator?.showDetails(event)
+        let event: Event?
+        if isFiltering {
+            event = dataSource?.filteredEvents[indexPath.row]
+        } else {
+            event = dataSource?.events[indexPath.row]
+        }
+        
+        if let _event = event {
+            coordinator?.showDetails(_event)
         }
     }
 }
 
 extension EventsViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
+        if searchController.searchBar.text?.count == 0 && isFiltering == true {
+            isFiltering = false
+        }
+    }
+}
+
+extension EventsViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isFiltering = false
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard searchController.searchBar.text!.count > 0 else { return }
         
+        filterContentForSearchText(searchBar.text!)
     }
 }
