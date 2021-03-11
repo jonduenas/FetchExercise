@@ -77,15 +77,9 @@ class MobileService: MobileService_Protocol {
             
             var eventDateTime: EventDateTime
             if eventData.timeTbd == false {
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-                if let date = dateFormatter.date(from: eventData.datetimeLocal) {
-                    dateFormatter.timeStyle = .none
-                    dateFormatter.dateStyle = .full
-                    let dateString = dateFormatter.string(from: date)
-                    dateFormatter.timeStyle = .short
-                    dateFormatter.dateStyle = .none
-                    let timeString = dateFormatter.string(from: date)
+                if let date = eventData.datetimeLocal.convertToDate() {
+                    let dateString = date.convertDateToString()
+                    let timeString = date.convertTimeToString()
                     eventDateTime = .dateTime(date: dateString, time: timeString)
                 } else {
                     eventDateTime = .tbd
@@ -116,5 +110,21 @@ extension String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         return dateFormatter.date(from: self)
+    }
+}
+
+extension Date {
+    func convertTimeToString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .short
+        dateFormatter.dateStyle = .none
+        return dateFormatter.string(from: self)
+    }
+    
+    func convertDateToString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateStyle = .full
+        return dateFormatter.string(from: self)
     }
 }
