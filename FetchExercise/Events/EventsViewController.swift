@@ -16,6 +16,7 @@ class EventsViewController: UIViewController, Storyboarded {
     weak var coordinator: EventsCoodinator?
     private var mobileService: MobileService_Protocol = MobileService()
     var dataSource: EventsDataSource?
+    var favorites = Favorites()
     var activityIndicator: UIActivityIndicatorView!
     var isFiltering: Bool = false {
         didSet {
