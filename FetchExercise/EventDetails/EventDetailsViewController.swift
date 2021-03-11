@@ -17,6 +17,7 @@ class EventDetailsViewController: UIViewController, Storyboarded {
     
     weak var coordinator: EventsCoodinator?
     var event: Event?
+    var favorites: Favorites?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,9 @@ class EventDetailsViewController: UIViewController, Storyboarded {
             print("Error loading event")
             return
         }
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Fave", style: .plain, target: self, action: #selector(didTapFavorite(_:)))
+        setFaveImage()
         
         updateLabels(for: event)
         updateImageView(for: event)
@@ -58,5 +62,35 @@ class EventDetailsViewController: UIViewController, Storyboarded {
         }
         
         cityLabel.text = "\(event.city), \(event.state)"
+    }
+    
+    private func toggleFavorite() {
+        guard let faves = favorites, let event = event else { return }
+        
+        if faves.contains(event) {
+            faves.remove(event)
+        } else {
+            faves.add(event)
+        }
+        
+        setFaveImage()
+    }
+    
+    private func setFaveImage() {
+        guard let faves = favorites, let event = event else { return }
+        
+        let notFaveImage = "star"
+        
+        if #available(iOS 13.0, *) {
+            let image = faves.contains(event) ? UIImage(systemName: "star.fill") : UIImage(systemName: notFaveImage)
+            navigationItem.rightBarButtonItem?.image = image
+        } else {
+            let image = faves.contains(event) ? UIImage(named: "star_fill") : UIImage(named: notFaveImage)
+            navigationItem.rightBarButtonItem?.image = image
+        }
+    }
+    
+    @objc func didTapFavorite(_ barButton: UIBarButtonItem) {
+        toggleFavorite()
     }
 }

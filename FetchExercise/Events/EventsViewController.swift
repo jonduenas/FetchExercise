@@ -114,7 +114,7 @@ extension EventsViewController: UITableViewDelegate {
         }
         
         if let _event = event {
-            coordinator?.showDetails(_event)
+            coordinator?.showDetails(_event, favorites: favorites)
         }
     }
 }

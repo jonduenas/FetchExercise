@@ -21,10 +21,11 @@ class EventsCoodinator: Coordinator {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func showDetails(_ event: Event) {
+    func showDetails(_ event: Event, favorites: Favorites) {
         let vc = EventDetailsViewController.instantiate()
         vc.coordinator = self
         vc.event = event
+        vc.favorites = favorites
         navigationController.pushViewController(vc, animated: true)
     }
 }
