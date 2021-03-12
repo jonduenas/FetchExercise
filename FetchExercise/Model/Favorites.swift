@@ -41,4 +41,8 @@ class Favorites {
             UserDefaults.standard.set(encoded, forKey: saveKey)
         }
     }
+    
+    func getFavorites() -> [Int] {
+        return Array(events)
+    }
 }

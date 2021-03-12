@@ -63,7 +63,7 @@ class EventsViewController: UIViewController, Storyboarded {
     private func loadEvents() {
         setState(loading: true)
         
-        mobileService.fetchEvents(page: 1, query: nil, completion: { [weak self] result in
+        mobileService.fetchEvents(page: 1, query: nil, ids: nil, completion: { [weak self] result in
             guard let self = self else { return }
             
             switch result {
@@ -80,11 +80,16 @@ class EventsViewController: UIViewController, Storyboarded {
         })
     }
     
-    private func filterContentForSearchText(_ searchText: String) {
+    private func filterContentForSearchText(_ searchText: String, category: SearchCategory? = .all) {
         setState(loading: true)
         isFiltering = true
         
-        mobileService.fetchEvents(page: 1, query: searchText, completion: { [weak self] result in
+        var categoryIDs = [Int]()
+        if category == .favorites {
+            categoryIDs = favorites.getFavorites()
+        }
+        
+        mobileService.fetchEvents(page: 1, query: searchText, ids: categoryIDs, completion: { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)

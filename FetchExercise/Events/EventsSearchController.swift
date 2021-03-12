@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum SearchCategory: String, CaseIterable {
+    case all
+    case favorites
+}
+
 class EventsSearchController: UISearchController {
 
     override func viewDidLoad() {

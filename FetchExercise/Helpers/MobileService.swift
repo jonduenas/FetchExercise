@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MobileService_Protocol {
-    func fetchEvents(page: Int, query: String?, completion: @escaping (Result<[Event], Error>) -> Void)
+    func fetchEvents(page: Int, query: String?, ids: [Int]?, completion: @escaping (Result<[Event], Error>) -> Void)
 }
 
 class MobileService: MobileService_Protocol {
@@ -22,7 +22,7 @@ class MobileService: MobileService_Protocol {
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
     }
     
-    func fetchEvents(page: Int, query: String?, completion: @escaping (Result<[Event], Error>) -> Void) {
+    func fetchEvents(page: Int, query: String?, ids: [Int]?, completion: @escaping (Result<[Event], Error>) -> Void) {
         let urlRequest = URLRequest(url: api_endpoint.appendingPathComponent(apiResource.events.rawValue))
         
         var parameters: [String: String] = [
@@ -31,12 +31,22 @@ class MobileService: MobileService_Protocol {
             "per_page": "20"
         ]
         
-        if let query = query {
+        if let query = query, query != "" {
             let queryString = query.lowercased().replacingOccurrences(of: " ", with: "+")
             parameters["q"] = queryString
         }
         
+        if let ids = ids, !ids.isEmpty {
+            var idsString = ""
+            for id in ids {
+                idsString.append("\(id),")
+            }
+            let finalString = idsString.dropLast()
+            parameters["id"] = String(finalString)
+        }
+        
         let encodedRequest = urlRequest.encode(with: parameters)
+        
         print(encodedRequest.url!)
         URLSession.shared.dataTask(with: encodedRequest) { (data, response, error) in
             if let error = error {
@@ -54,16 +64,6 @@ class MobileService: MobileService_Protocol {
                 }
             }
         }.resume()
-    }
-    
-    private func constructURL() -> URL {
-        let url = api_endpoint.appendingPathComponent(apiResource.events.rawValue)
-        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)!
-        urlComponents.queryItems = [
-            URLQueryItem(name: "client_id", value: api_clientID),
-            URLQueryItem(name: "per_page", value: "20")
-        ]
-        return urlComponents.url!
     }
     
     private func parse(_ eventList: EventsList) -> [Event] {
