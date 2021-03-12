@@ -14,7 +14,7 @@ class EventsViewController: UIViewController, Storyboarded {
     let searchController = EventsSearchController(searchResultsController: nil)
     
     weak var coordinator: EventsCoodinator?
-    private var mobileService: MobileService_Protocol = MobileService()
+    var mobileService: MobileService_Protocol = MobileService()
     var dataSource: EventsDataSource?
     var favorites = Favorites()
     var activityIndicator: UIActivityIndicatorView!
@@ -72,6 +72,7 @@ class EventsViewController: UIViewController, Storyboarded {
             case .success(let events):
                 self.dataSource = EventsDataSource(events: events, favorites: self.favorites)
                 DispatchQueue.main.async {
+                    print("Successfully loaded events")
                     self.setState(loading: false)
                     self.tableView.dataSource = self.dataSource
                     self.tableView.reloadData()
@@ -96,6 +97,7 @@ class EventsViewController: UIViewController, Storyboarded {
             case .success(let filteredEvents):
                 self?.dataSource?.filteredEvents = filteredEvents
                 DispatchQueue.main.async {
+                    print("Successfully loaded filtered events")
                     self?.setState(loading: false)
                     self?.tableView.reloadData()
                 }

@@ -21,7 +21,8 @@ extension URLRequest {
            let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true),
            !parameters.isEmpty {
             var newUrlComponents = urlComponents
-            let queryItems = parameters.map { key, value in
+            let sortedParameters = parameters.sorted { $0.key < $1.key }
+            let queryItems = sortedParameters.map { key, value in
                 URLQueryItem(name: key, value: value)
             }
             newUrlComponents.queryItems = queryItems

@@ -13,11 +13,13 @@ protocol MobileService_Protocol {
 
 class MobileService: MobileService_Protocol {
     private let jsonDecoder: JSONDecoder
+    private let sessionManager: URLSession
     let api_clientSecret = "6f5039b5ce58f24602b7d26450f0c74c3c1c4f8738c5e752a29bdde2e2548f62"
     let api_clientID = "MjE1ODQ0MDN8MTYxNTMyNTUwOC45ODI4ODA0"
     let api_endpoint = URL(string: "https://api.seatgeek.com/2")!
     
-    init() {
+    init(sessionManager: URLSession = URLSession.shared) {
+        self.sessionManager = sessionManager
         self.jsonDecoder = JSONDecoder()
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
     }
@@ -47,8 +49,7 @@ class MobileService: MobileService_Protocol {
         
         let encodedRequest = urlRequest.encode(with: parameters)
         
-        print(encodedRequest.url!)
-        URLSession.shared.dataTask(with: encodedRequest) { (data, response, error) in
+        sessionManager.dataTask(with: encodedRequest) { (data, response, error) in
             if let error = error {
                 completion(.failure(error))
                 return

@@ -20,7 +20,7 @@ struct Event {
     let isFavorite: Bool = false
 }
 
-enum EventDateTime {
+enum EventDateTime: Equatable {
     case tbd
     case dateTime(date: String, time: String)
 }

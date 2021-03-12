@@ -1,18 +1,22 @@
 PODS:
+  - Mocker (2.5.2)
   - SDWebImage (5.9.5):
     - SDWebImage/Core (= 5.9.5)
   - SDWebImage/Core (5.9.5)
 
 DEPENDENCIES:
+  - Mocker (~> 2.5.2)
   - SDWebImage (~> 5.0)
 
 SPEC REPOS:
   trunk:
+    - Mocker
     - SDWebImage
 
 SPEC CHECKSUMS:
+  Mocker: 304831b890144a47bd2858714041f7d4a304016d
   SDWebImage: 0b2ba0d56479bf6a45ecddbfd5558bea93150d25
 
-PODFILE CHECKSUM: d878309ca7f7cb808608f67d21373cab45d2a22e
+PODFILE CHECKSUM: b1e9d4aa46a1316a7b899785851970fa786de3c3
 
 COCOAPODS: 1.9.3
