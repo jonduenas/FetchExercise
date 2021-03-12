@@ -15,9 +15,11 @@ class EventsViewController: UIViewController, Storyboarded {
     
     weak var coordinator: EventsCoodinator?
     var mobileService: MobileService_Protocol = MobileService()
+    var alertPresenter: AlertPresenter_Proto = AlertPresenter()
     var dataSource: EventsDataSource?
     var favorites = Favorites()
     var activityIndicator: UIActivityIndicatorView!
+    var isFetchInProgress: Bool = false
     var isFiltering: Bool = false {
         didSet {
             dataSource?.isFiltering = isFiltering
@@ -61,6 +63,9 @@ class EventsViewController: UIViewController, Storyboarded {
     }
     
     private func loadEvents() {
+        guard !isFetchInProgress else { return }
+        
+        isFetchInProgress = true
         setState(loading: true)
         
         mobileService.fetchEvents(page: 1, query: nil, ids: nil, completion: { [weak self] result in
@@ -68,11 +73,19 @@ class EventsViewController: UIViewController, Storyboarded {
             
             switch result {
             case .failure(let error):
-                print(error)
+                DispatchQueue.main.async {
+                    print(error)
+                    self.alertPresenter.present(from: self,
+                                                title: "Unexpected Error",
+                                                message: "There was an error loading events: \(error.localizedDescription)",
+                                                dismissButtonTitle: "OK")
+                    self.isFetchInProgress = false
+                }
             case .success(let events):
-                self.dataSource = EventsDataSource(events: events, favorites: self.favorites)
                 DispatchQueue.main.async {
                     print("Successfully loaded events")
+                    self.dataSource = EventsDataSource(events: events, favorites: self.favorites)
+                    self.isFetchInProgress = false
                     self.setState(loading: false)
                     self.tableView.dataSource = self.dataSource
                     self.tableView.reloadData()
@@ -82,6 +95,9 @@ class EventsViewController: UIViewController, Storyboarded {
     }
     
     private func filterContentForSearchText(_ searchText: String, category: SearchCategory? = .all) {
+        guard !isFetchInProgress else { return }
+        
+        isFetchInProgress = true
         setState(loading: true)
         isFiltering = true
         
@@ -91,15 +107,25 @@ class EventsViewController: UIViewController, Storyboarded {
         }
         
         mobileService.fetchEvents(page: 1, query: searchText, ids: categoryIDs, completion: { [weak self] result in
+            guard let self = self else { return }
+            
             switch result {
             case .failure(let error):
-                print(error)
+                DispatchQueue.main.async {
+                    print(error)
+                    self.alertPresenter.present(from: self,
+                                                title: "Unexpected Error",
+                                                message: "There was an error loading events: \(error.localizedDescription)",
+                                                dismissButtonTitle: "OK")
+                    self.isFetchInProgress = false
+                }
             case .success(let filteredEvents):
-                self?.dataSource?.filteredEvents = filteredEvents
                 DispatchQueue.main.async {
                     print("Successfully loaded filtered events")
-                    self?.setState(loading: false)
-                    self?.tableView.reloadData()
+                    self.isFetchInProgress = false
+                    self.dataSource?.filteredEvents = filteredEvents
+                    self.setState(loading: false)
+                    self.tableView.reloadData()
                 }
             }
         })

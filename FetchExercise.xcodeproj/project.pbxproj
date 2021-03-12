@@ -16,6 +16,7 @@
 		654C100F25FBEF2F003390C9 /* MockEvent.json in Resources */ = {isa = PBXBuildFile; fileRef = 654C100D25FBEF2F003390C9 /* MockEvent.json */; };
 		654C102325FC0127003390C9 /* MockedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654C102225FC0127003390C9 /* MockedData.swift */; };
 		654C102425FC0127003390C9 /* MockedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654C102225FC0127003390C9 /* MockedData.swift */; };
+		654C102C25FC1679003390C9 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654C102B25FC1679003390C9 /* AlertPresenter.swift */; };
 		65682B3825FAAE5F0072632B /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65682B3725FAAE5F0072632B /* Favorites.swift */; };
 		659BDA5D25F81D2700ADC237 /* MobileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BDA5C25F81D2700ADC237 /* MobileService.swift */; };
 		659BDA6F25F844B300ADC237 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BDA6E25F844B300ADC237 /* URLRequest.swift */; };
@@ -66,6 +67,7 @@
 		654C100825FBEC09003390C9 /* MobileServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileServiceTests.swift; sourceTree = "<group>"; };
 		654C100D25FBEF2F003390C9 /* MockEvent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = MockEvent.json; path = FetchExerciseTests/Mocks/MockEvent.json; sourceTree = SOURCE_ROOT; };
 		654C102225FC0127003390C9 /* MockedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedData.swift; sourceTree = "<group>"; };
+		654C102B25FC1679003390C9 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		65682B3725FAAE5F0072632B /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		659BDA5C25F81D2700ADC237 /* MobileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileService.swift; sourceTree = "<group>"; };
 		659BDA6E25F844B300ADC237 /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				659BDA5C25F81D2700ADC237 /* MobileService.swift */,
+				654C102B25FC1679003390C9 /* AlertPresenter.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				65C969CE25F80A5D00A6A733 /* Event.swift in Sources */,
 				659BDA7725F8466E00ADC237 /* EventsDataSource.swift in Sources */,
 				654C102325FC0127003390C9 /* MockedData.swift in Sources */,
+				654C102C25FC1679003390C9 /* AlertPresenter.swift in Sources */,
 				65682B3825FAAE5F0072632B /* Favorites.swift in Sources */,
 				65C9698525F7FA7800A6A733 /* SceneDelegate.swift in Sources */,
 				65C969E425F8179100A6A733 /* Storyboarded.swift in Sources */,
