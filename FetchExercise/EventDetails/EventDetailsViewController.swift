@@ -74,6 +74,7 @@ class EventDetailsViewController: UIViewController, Storyboarded {
         }
         
         setFaveImage()
+        NotificationCenter.default.post(name: .reload, object: nil)
     }
     
     private func setFaveImage() {

@@ -33,6 +33,11 @@ class EventsViewController: UIViewController, Storyboarded {
         configureActivityIndicator()
         tableView.delegate = self
         loadEvents()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableData), name: .reload, object: nil)
+    }
+    
+    @objc private func reloadTableData() {
+        tableView.reloadData()
     }
     
     private func configureActivityIndicator() {
@@ -139,4 +144,8 @@ extension EventsViewController: UISearchBarDelegate {
         
         filterContentForSearchText(searchBar.text!)
     }
+}
+
+extension Notification.Name {
+    static let reload = Notification.Name("reload")
 }
