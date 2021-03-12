@@ -59,15 +59,17 @@ class EventsViewController: UIViewController, Storyboarded {
         setState(loading: true)
         
         mobileService.fetchEvents(page: 1, query: nil, completion: { [weak self] result in
+            guard let self = self else { return }
+            
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let events):
-                self?.dataSource = EventsDataSource(events: events)
+                self.dataSource = EventsDataSource(events: events, favorites: self.favorites)
                 DispatchQueue.main.async {
-                    self?.setState(loading: false)
-                    self?.tableView.dataSource = self?.dataSource
-                    self?.tableView.reloadData()
+                    self.setState(loading: false)
+                    self.tableView.dataSource = self.dataSource
+                    self.tableView.reloadData()
                 }
             }
         })

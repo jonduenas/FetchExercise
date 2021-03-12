@@ -12,9 +12,11 @@ class EventsDataSource: NSObject, UITableViewDataSource {
     var events = [Event]()
     var filteredEvents = [Event]()
     var isFiltering: Bool = false
+    var favorites: Favorites
     
-    init(events: [Event]) {
+    init(events: [Event], favorites: Favorites) {
         self.events = events
+        self.favorites = favorites
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,6 +36,8 @@ class EventsDataSource: NSObject, UITableViewDataSource {
         } else {
             event = events[indexPath.row]
         }
+        
+        cell.eventIsFave = favorites.contains(event)
         
         if let imageURL = event.images[.huge] {
             cell.eventImageView.contentMode = .scaleAspectFill

@@ -76,12 +76,21 @@
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_fill" translatesAutoresizingMaskIntoConstraints="NO" id="7jQ-3Z-z7r">
+                                                    <rect key="frame" x="7" y="3" width="35" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="35" id="NXa-IV-KwT"/>
+                                                        <constraint firstAttribute="height" constant="35" id="zNN-mh-Yef"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="aIA-cS-tGT" firstAttribute="top" secondItem="7jQ-3Z-z7r" secondAttribute="bottom" constant="-18" id="EgP-cv-C1H"/>
                                                 <constraint firstAttribute="trailing" secondItem="pHi-vM-9j9" secondAttribute="trailing" constant="20" id="FxA-5D-ThK"/>
                                                 <constraint firstItem="aIA-cS-tGT" firstAttribute="top" secondItem="VI1-a8-1Jr" secondAttribute="top" constant="20" id="JVk-Bb-Oyb"/>
                                                 <constraint firstAttribute="bottom" secondItem="pHi-vM-9j9" secondAttribute="bottom" constant="20" id="Svp-v9-nOQ"/>
                                                 <constraint firstItem="aIA-cS-tGT" firstAttribute="leading" secondItem="VI1-a8-1Jr" secondAttribute="leading" constant="20" id="UUw-k0-xkC"/>
+                                                <constraint firstItem="aIA-cS-tGT" firstAttribute="leading" secondItem="7jQ-3Z-z7r" secondAttribute="trailing" constant="-22" id="bsX-02-Qqe"/>
                                                 <constraint firstItem="pHi-vM-9j9" firstAttribute="top" secondItem="aIA-cS-tGT" secondAttribute="top" id="hzG-3F-YRk"/>
                                                 <constraint firstItem="pHi-vM-9j9" firstAttribute="leading" secondItem="aIA-cS-tGT" secondAttribute="trailing" constant="20" id="pW8-LY-ytb"/>
                                             </constraints>
@@ -90,6 +99,7 @@
                                             <outlet property="cityLabel" destination="D6L-9v-ciI" id="ma5-RQ-5cu"/>
                                             <outlet property="dateLabel" destination="W9F-zc-ahm" id="vuR-Hb-hl5"/>
                                             <outlet property="eventImageView" destination="aIA-cS-tGT" id="ctf-tQ-iRr"/>
+                                            <outlet property="faveImageView" destination="7jQ-3Z-z7r" id="3HQ-VF-FZB"/>
                                             <outlet property="nameLabel" destination="oev-zZ-CZf" id="8NK-iE-gIG"/>
                                             <outlet property="timeLabel" destination="TdF-L2-IuG" id="UZd-mn-pQh"/>
                                         </connections>
@@ -116,6 +126,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="star_fill" width="44" height="44"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
