@@ -29,4 +29,6 @@ I would also create a section that allows the user to filter to show only their 
 
 Another area I felt could use improvement would be error handling, especially from the network calls. The user is shown an alert when there is an error, but it doesn't offer a way to try again, nor does it have specific error types with data for debugging.
 
+I also had issues with keeping iOS 12 support when trying to use images for things like the add to favorites icon, since iOS 12 does not support native SF Symbols. On iOS 12 the icon is functional, but looks off. I'd spend some time adjusting the UI and the icon to make sure it looked perfect for both iOS 12 and iOS 13+.
+
 Finally, I would add further Unit Tests for the view controllers, but I decided to only focus on essential logic of working with the API and working with Favorites.
