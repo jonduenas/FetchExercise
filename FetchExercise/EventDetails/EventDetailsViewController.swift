@@ -16,6 +16,7 @@ class EventDetailsViewController: UIViewController, Storyboarded {
     @IBOutlet weak var cityLabel: UILabel!
     
     weak var coordinator: EventsCoodinator?
+    var alertPresenter: AlertPresenter_Proto = AlertPresenter()
     var event: Event?
     var favorites: Favorites?
     
@@ -24,6 +25,10 @@ class EventDetailsViewController: UIViewController, Storyboarded {
         
         guard let event = event else {
             print("Error loading event")
+            alertPresenter.present(from: self,
+                                   title: "Unexpected Error",
+                                   message: "Unable to load the event.",
+                                   dismissButtonTitle: "OK")
             return
         }
         
