@@ -12,6 +12,7 @@ Uses CocoaPods for third party libraries. Please run 'pod install' to download a
 * App supports iOS 12 and above
 * Utilizes design patterns MVC, protocols and delegates, and the coordinator pattern for navigation
 * UI designed with Storyboards, with some extras done programmatically
+* User Favorites persisted via UserDefaults
 * Native use of URLSession for connecting to the SeatGeek API
 * Unit tests for MobileService class with mock URLSession and data, and for adding and removing event favorites
 
