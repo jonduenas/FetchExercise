@@ -27,4 +27,6 @@ There are additional features I wanted to add, but sacrificed for the sake of ti
 
 I would also create a section that allows the user to filter to show only their Favorites, and also search only their Favorites instead of the entire SeatGeek API. There is also some additional foundational code for this already. The API however does not allow a search query while also filtering for ids. While not impossible to solve, it was going to take an additional amount of time I felt were better spent elsewhere. 
 
+Another area I felt could use improvement would be error handling, especially from the network calls. The user is shown an alert when there is an error, but it doesn't offer a way to try again, nor does it have specific error types with data for debugging.
+
 Finally, I would add further Unit Tests for the view controllers, but I decided to only focus on essential logic of working with the API and working with Favorites.
